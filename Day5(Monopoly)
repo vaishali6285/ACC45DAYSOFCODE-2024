@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <algorithm> // Include algorithm for sort
+using namespace std;
+
+void solution() {
+    vector<int> profits(4);
+    for (int i = 0; i < 4; ++i) {
+        cin >> profits[i];
+    }
+    sort(profits.begin(), profits.end());
+    int largest = profits[3];
+    int sum_of_rem_three = profits[0] + profits[1] + profits[2];
+    if (largest > sum_of_rem_three) {
+        cout << "Yes";
+    } else {
+        cout << "No";
+    }
+    cout << "\n";
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        solution();
+    }
+    return 0;
+}
+
+   
