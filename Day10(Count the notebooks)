@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void countNotebooks(int test_cases[], int T) {
+    for (int i = 0; i < T; ++i) {
+        int N = test_cases[i];
+        int notebooks = (N * 1000) / 100;
+        cout << notebooks << endl;
+    }
+}
+
+int main() {
+    int T;
+    cout << "Enter number of test cases: ";
+    cin >> T;
+    int test_cases[T];
+    for (int i = 0; i < T; ++i) {
+        cin >> test_cases[i];
+    }
+    countNotebooks(test_cases, T);
+    return 0;
+}
