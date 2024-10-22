@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+bool can_achieve_score(int n, int x, int y) {
+    // Check if Y is a multiple of X and if the quotient is less than or equal to N
+    return (y % x == 0 && y / x <= n);
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, x, y;
+        cin >> n >> x >> y;
+        if (can_achieve_score(n, x, y)) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+    return 0;
+}
