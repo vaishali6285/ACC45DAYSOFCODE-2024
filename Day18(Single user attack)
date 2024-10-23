@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int min_attacks(int H, int X, int Y) {
+    // If special attack alone can defeat the boss
+    if (Y >= H) {
+        return 1;
+    }
+    
+    // Use the special attack once
+    int remaining_health = H - Y;
+    
+    // Calculate the number of normal attacks needed
+    int normal_attacks = ceil((double)remaining_health / X);
+    
+    return 1 + normal_attacks;  // 1 for the special attack
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int H, X, Y;
+        cin >> H >> X >> Y;
+        cout << min_attacks(H, X, Y) << endl;
+    }
+    return 0;
+}
