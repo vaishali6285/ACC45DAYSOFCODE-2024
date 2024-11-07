@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int countTuesdays(int N) {
+    int fullWeeks = N / 7;
+    int remainingDays = N % 7;
+    int tuesdayCount = fullWeeks;
+    if (remainingDays >= 1) {
+        tuesdayCount++;
+    }
+    return tuesdayCount;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    vector<int> results(T);
+    for (int i = 0; i < T; ++i) {
+        int N;
+        cin >> N;
+        if (N < 2) {
+            results[i] = 0;  // Since no Tuesday is reached
+        } else {
+            results[i] = countTuesdays(N - 1);  
+        }
+    }
+    for (const int& result : results) {
+        cout << result << endl;
+    }
+    return 0;
+}
