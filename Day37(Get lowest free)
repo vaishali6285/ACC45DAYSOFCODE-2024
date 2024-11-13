@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+// Function to find the smallest non-negative integer not in the array
+int getLowestFree(const std::vector<int>& arr) {
+    int n = arr.size();
+    std::vector<bool> present(n, false);
+
+    // Mark the present elements in the range [0, n-1]
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] < n && arr[i] >= 0) {
+            present[arr[i]] = true;
+        }
+    }
+
+    // Find the first false in the present array
+    for (int i = 0; i < n; ++i) {
+        if (!present[i]) {
+            return i;
+        }
+    }
+
+    return n; // If all elements from 0 to n-1 are present, return n
+}
+
+int main() {
+    std::vector<int> arr = {3, 4, -1, 1};
+    std::cout << "The smallest non-negative integer not present in the array is: " << getLowestFree(arr) << std::endl;
+    return 0;
+}
