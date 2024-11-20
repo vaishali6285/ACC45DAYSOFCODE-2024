@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int minimumFlips(vector<int>& arr) {
+    int sum = 0, n = arr.size();
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    
+    // If sum is odd, it's impossible to make it zero
+    if (sum % 2 != 0) return -1;
+    
+    int target = abs(sum / 2);
+    int countPositive = 0, countNegative = 0;
+    
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == 1) countPositive++;
+        else countNegative++;
+    }
+    
+    int minFlips = min(countPositive, countNegative);
+    int diff = abs(countPositive - countNegative);
+    
+    if (diff % 2 != 0) return -1;
+    
+    return minFlips + (diff / 2);
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> arr(N);
+        for (int i = 0; i < N; i++) {
+            cin >> arr[i];
+        }
+        cout << minimumFlips(arr) << endl;
+    }
+    return 0;
+}
+Mino
