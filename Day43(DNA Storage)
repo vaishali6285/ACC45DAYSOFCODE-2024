@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string encodeDNA(const string &S) {
+    string result;
+    for (size_t i = 0; i < S.length(); i += 2) {
+        string pair = S.substr(i, 2);
+        if (pair == "00") {
+            result += 'A';
+        } else if (pair == "01") {
+            result += 'T';
+        } else if (pair == "10") {
+            result += 'C';
+        } else if (pair == "11") {
+            result += 'G';
+        }
+    }
+    return result;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        string S;
+        cin >> N >> S;
+        cout << encodeDNA(S) << endl;
+    }
+    return 0;
+}
